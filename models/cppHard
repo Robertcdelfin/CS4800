@@ -1,0 +1,44 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * Write your model definitions here
+ */
+
+namespace cpp
+
+/**
+ * The participant model for a Owner
+ */
+participant Supplier identified by supplierName {
+  o String supplierName
+  o Order[] orders
+  o Product[] products
+}
+asset Order identified by orderID {
+  o String orderID
+  o String date
+  o Product product
+  o Integer quantity
+  o Integer pricePerUnit
+  o Integer totalPrice
+  --> Supplier supplier
+  --> Supplier previousSupplier
+}
+asset Product identified by productSKU {
+  o String productSKU
+  o String productName
+  o Product[] components
+  --> Supplier supplier  
+}

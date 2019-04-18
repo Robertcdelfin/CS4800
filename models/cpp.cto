@@ -1,0 +1,11 @@
+namespace cpp
+
+asset Order identified by productID {
+  o String productID
+  o String productName
+  o String owner
+  o String previousOwner
+  o Integer quantity
+  o Integer pricePerUnit
+  o Integer totalPrice
+}
